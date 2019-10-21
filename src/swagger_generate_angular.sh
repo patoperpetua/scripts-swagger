@@ -30,6 +30,11 @@ if ! type "curl" &> /dev/null; then
     exit 1
 fi
 
+if [ -f .env ]
+then
+    export "$(< .env sed 's/#.*//g' | xargs)"
+fi
+
 if [ -z "${SWAGGER_API_SPEC+x}" ]; then
     SWAGGER_API_SPEC="../../documentation/dist/openapi.yaml"
 fi
