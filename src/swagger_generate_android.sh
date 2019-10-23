@@ -37,7 +37,9 @@ fi
 
 if [ -f .env ]
 then
-    export "$(< .env sed 's/#.*//g' | xargs)"
+    # shellcheck disable=SC2046
+    export $(< .env sed 's/#.*//g' | xargs)
+    # export $(grep -v '^#' .env | xargs)
 fi
 
 if [ -z "${SWAGGER_API_SPEC+x}" ]; then
@@ -70,7 +72,7 @@ source "${__dir}/swagger_binaries_downloader.sh"
 
 SWAGGER_COMMAND="java -jar ${SWAGGER_JAR} generate -l java"
 
-"${SWAGGER_COMMAND}" \
+eval "${SWAGGER_COMMAND}" \
     -i "${SWAGGER_API_SPEC}" \
     --library=okhttp-gson \
 	--model-package="${SWAGGER_GROUP}.${SWAGGER_ARTIFACT}.model" \

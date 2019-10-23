@@ -35,8 +35,10 @@ SWAGGER_VERSION=
 It can be downloaded by:
 
 ```bash
-curl -o swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_dowloader.sh && \
-curl -o swagger_generate_android.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_generate_android.sh
+mkdir -p scripts && \
+curl -o scripts/swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_downloader.sh && \
+curl -o scripts/swagger_generate_android.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_generate_android.sh && \
+chmod +x scripts/swagger_binaries_downloader.sh scripts/swagger_generate_android.sh
 ```
 
 ### SWAGGER GENERATE ANGULAR
@@ -50,8 +52,10 @@ SWAGGER_API_SPEC=#location of spec, it can be local or url
 It can be downloaded by:
 
 ```bash
-curl -o swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_dowloader.sh && \
-curl -o swagger_generate_angular.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_generate_angular.sh
+mkdir -p scripts && \
+curl -o scripts/swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_dowloader.sh && \
+curl -o scripts/swagger_generate_angular.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_generate_angular.sh && \
+chmod +x scripts/swagger_binaries_downloader.sh scripts/swagger_generate_angular.sh
 ```
 
 ## DOWNLOAD
