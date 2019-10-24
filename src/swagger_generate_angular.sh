@@ -46,7 +46,13 @@ function usage(){
 }
 
 if [ $# -ge 1 ]; then
-    API_SPEC="${1}"
+    if [ "$1" == "local" ]; then
+        SWAGGER_API_SPEC="../../documentation/dist/openapi.yaml"
+        echo "Running with local spec at ${SWAGGER_API_SPEC}"
+    else
+        SWAGGER_API_SPEC="${1}"
+        echo "Running with provided spec at ${SWAGGER_API_SPEC}"
+    fi
 fi
 
 FOLDER=binaries
@@ -59,7 +65,7 @@ source "${__dir}/swagger_binaries_downloader.sh"
 SWAGGER_COMMAND="java -jar ${SWAGGER_JAR} generate -l typescript-angular"
 
 eval "${SWAGGER_COMMAND}" \
-    -i "${API_SPEC}" \
+    -i "${SWAGGER_API_SPEC}" \
     -o src \
     --model-package=models --api-package=api
 

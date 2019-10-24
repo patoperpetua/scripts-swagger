@@ -63,6 +63,16 @@ function usage(){
     echo "2 - api version."
 }
 
+if [ $# -ge 1 ]; then
+    if [ "$1" == "local" ]; then
+        SWAGGER_API_SPEC="../../documentation/dist/openapi.yaml"
+        echo "Running with local spec at ${SWAGGER_API_SPEC}"
+    else
+        SWAGGER_API_SPEC="${1}"
+        echo "Running with provided spec at ${SWAGGER_API_SPEC}"
+    fi
+fi
+
 FOLDER=binaries
 SWAGGER_NAME=swagger-codegen-cli.jar
 SWAGGER_JAR=${FOLDER}/${SWAGGER_NAME}
