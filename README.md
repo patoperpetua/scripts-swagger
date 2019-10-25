@@ -53,9 +53,10 @@ It can be downloaded by:
 
 ```bash
 mkdir -p scripts && \
-curl -o scripts/swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_dowloader.sh && \
+curl -o scripts/swagger_binaries_downloader.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_binaries_downloader.sh && \
 curl -o scripts/swagger_generate_angular.sh -L https://singletonsd.gitlab.io/scripts/swagger/latest/swagger_generate_angular.sh && \
-chmod +x scripts/swagger_binaries_downloader.sh scripts/swagger_generate_angular.sh
+chmod +x scripts/swagger_binaries_downloader.sh scripts/swagger_generate_angular.sh && \
+./scripts/swagger_generate_angular.sh
 ```
 
 ## DOWNLOAD
